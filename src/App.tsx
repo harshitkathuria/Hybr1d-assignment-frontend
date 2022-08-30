@@ -1,9 +1,16 @@
-import React from 'react';
-import './App.scss';
+import React from "react";
+import "./App.scss";
+import Header from "./components/Header/Header";
+import News from "components/News/News";
+import Footer from "components/Footer/Footer";
 
 function App() {
   return (
-    <div>Hello World</div>
+    <div className="layout">
+      <Header />
+      <News />
+      <Footer />
+    </div>
   );
 }
 
