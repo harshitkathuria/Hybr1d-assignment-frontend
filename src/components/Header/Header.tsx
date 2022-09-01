@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Logo from "assets/logo.svg";
+import { useNavigate, Link } from "react-router-dom";
+import HNLogo from "assets/HNLogo.webp";
 import styles from "./Header.module.scss";
 
 const Header = () => {
@@ -18,9 +18,9 @@ const Header = () => {
   return (
     <nav className={styles.header}>
       <div className={styles.header_wrapper}>
-        <div>
-          <img src={Logo} alt="Logo" />
-        </div>
+        <Link to="/" className={styles.logo}>
+          <img src={HNLogo} alt="Logo" />
+        </Link>
         <div className={styles.form_wrapper}>
           <form onSubmit={onSubmit}>
             <input

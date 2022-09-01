@@ -14,9 +14,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     padding: 15px 45px;
     margin: auto;
+
+    .logo {
+      display: flex;
+      width: fit-content;
+      height: fit-content;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
 
   .form_wrapper {
@@ -35,9 +45,12 @@
         outline: none;
         height: 100%;
         padding-left: 14px;
-        font-size: 18px;
+        font-size: 15px;
+        font-weight: bold;
         line-height: 18px;
-        // color: rgba(40, 26, 202, 0.8);
+        &::placeholder {
+          color: #a0a0a0;
+        }
       }
       button {
         border: none;
