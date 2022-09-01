@@ -1,4 +1,13 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card {
+  width: 1000px;
+  margin: auto;
   border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 10px;
   margin-bottom: 1rem;
@@ -13,7 +22,6 @@
 
   .title {
     font-size: 16px;
-    height: 45px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -45,31 +53,13 @@
     }
   }
 
-  // Card Footer
-  .cardFooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.25rem;
-    border-top: 1px solid #1f2120;
-
-    // CTA Button
-    .btn {
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      margin-top: 10px;
-      background-color: #1f2120;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 0.25rem;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      &:hover {
-        background-color: #151616;
-      }
+  .comments_wrapper {
+    .title {
+      font-weight: 600;
+      font-size: 17px;
+      padding: 1rem 0.25rem 0;
+      border-top: 1px solid #1f2120;
+      margin: 10px auto;
     }
   }
 }

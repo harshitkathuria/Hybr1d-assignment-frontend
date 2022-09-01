@@ -15,9 +15,11 @@ const News = () => {
 
   return (
     <div className={styles.container}>
-      {data.length > 0
-        ? data.map((item, index) => <NewsItem data={item} key={index} />)
-        : "No data to show"}
+      <div className={styles.news}>
+        {data.length > 0
+          ? data.map((item, index) => <NewsItem data={item} key={index} />)
+          : "No data to show"}
+      </div>
     </div>
   );
 };

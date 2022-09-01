@@ -28,9 +28,9 @@ const NewsItem = (props: NewsItemProps) => {
         </div>
       </div>
       <div className={styles.cardFooter}>
-        <a className={styles.btn} href={props.data.url}>
+        <Link className={styles.btn} to={"news/" + props.data.objectID}>
           View
-        </a>
+        </Link>
       </div>
     </div>
   );
