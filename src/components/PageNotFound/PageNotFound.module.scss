@@ -1,0 +1,37 @@
+.container {
+  margin: auto;
+  text-align: center;
+
+  .error {
+    font-size: 100px;
+    color: #1f2120;
+    letter-spacing: 3px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .message {
+    font-size: 25px;
+    color: #eb4e16;
+    font-weight: 600;
+  }
+
+  .button {
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 10px;
+    // width: fit-content;
+    background: #eb4e16;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}

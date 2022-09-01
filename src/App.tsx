@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import News from "components/News/News";
 import Footer from "components/Footer/Footer";
 import NewsDetail from "components/NewsDetail/NewsDetail";
+import PageNotFound from "components/PageNotFound/PageNotFound";
 import "./App.scss";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<News />} />
         <Route path="news/:id" element={<NewsDetail />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
     </div>
