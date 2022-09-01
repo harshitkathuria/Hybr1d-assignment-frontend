@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import NewsItem from "components/NewsItem/NewsItem";
 import styles from "./News.module.scss";
 import Loader from "components/Loader/Loader";
@@ -10,28 +11,36 @@ const News = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
 
+  const getResults = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        `https://hn.algolia.com/api/v1/search?query=${query}`
+      );
+      const data = await res.json();
+      setData(data.hits);
+    } catch (err) {
+      toast.error("Something went wrong");
+    }
+    setLoading(false);
+  };
+
   useEffect(() => {
     if (!query) return;
-    setLoading(true);
-    fetch(`https://hn.algolia.com/api/v1/search?query=${query}`)
-      .then(res => res.json())
-      .then(data => {
-        setData(data.hits);
-        setLoading(false);
-      });
+    getResults();
   }, [query]);
 
   return loading ? (
     <Loader />
   ) : (
     <div className={styles.container}>
-      {!query ? (
+      {!query || !data.length ? (
         <div className={styles.error}>No Data to Show</div>
       ) : (
         <div className={styles.news}>
-          {data.length > 0
-            ? data.map((item, index) => <NewsItem data={item} key={index} />)
-            : "No data to show"}
+          {data.map((item, index) => (
+            <NewsItem data={item} key={index} />
+          ))}
         </div>
       )}
     </div>

@@ -5,21 +5,28 @@ import styles from "./NewsDetail.module.scss";
 import Comments from "components/Comments/Comments";
 import OpenLink from "assets/OpenLink.svg";
 import Loader from "components/Loader/Loader";
+import { toast } from "react-toastify";
 
 const NewsDetail = () => {
   const [newsData, setNewsData] = useState<any>({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
 
+  const getResults = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(`https://hn.algolia.com/api/v1/items/${id}`);
+      const data = await res.json();
+      setNewsData(data);
+    } catch (err) {
+      toast.error("Something went wrong");
+    }
+    setLoading(false);
+  };
+
   useEffect(() => {
     if (!id) return;
-    setLoading(true);
-    fetch(`https://hn.algolia.com/api/v1/items/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        setNewsData(data);
-        setLoading(false);
-      });
+    getResults();
   }, [id]);
 
   return loading ? (
