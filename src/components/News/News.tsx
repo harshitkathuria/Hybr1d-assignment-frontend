@@ -33,16 +33,18 @@ const News = () => {
   return loading ? (
     <Loader />
   ) : (
-    <div className={styles.container}>
-      {!query || !data.length ? (
-        <div className={styles.error}>No Data to Show</div>
-      ) : (
-        <div className={styles.news}>
-          {data.map((item, index) => (
-            <NewsItem data={item} key={index} />
-          ))}
-        </div>
-      )}
+    <div style={{ flexGrow: 1 }}>
+      <div className={styles.container}>
+        {!query || !data.length ? (
+          <div className={styles.error}>No Data to Show</div>
+        ) : (
+          <div className={styles.news}>
+            {data.map((item, index) => (
+              <NewsItem data={item} key={index} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
